@@ -4,13 +4,13 @@
   <body>
     <%- include ("nav.ejs")%>
     <div class="list"
-   <h1 class="list__header">List of products</h1>
+   <h1 class="list__header">List of admin products</h1>
    <% if(products.length ===0) {%>
-<h1 class="list__header">There are no products</h1><%} else {
+<h1 class="list__header">There are no added products</h1><%} else {
   %><ul class="list__list"><%
 for (const product of products) {
 %>
-<%- include ("product.ejs", {product})%>
+<%- include ("admin-product.ejs", {product})%>
 <%}
 %></ul><%
 }%>

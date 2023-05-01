@@ -7,7 +7,7 @@ const router = express.Router()
 const productsPath = path.join(__dirname, "..", "data", "products.json")
 
 router.get("/admin/add-product", (req, res) => {
-  res.render("add-product", { pageTitle: "Add product" })
+  res.render("add-product", { pageTitle: "Add product", path:"/admin/add-product" })
 })
 
 router.post("/admin/add-product", (req, res) => {
@@ -24,4 +24,20 @@ router.post("/admin/add-product", (req, res) => {
     })
   })
 })
+router.get("/admin/products", (req, res) => {
+  fs.readFile(productsPath, (err, products) => {
+    res.render("admin-products", {
+      pageTitle: "Admin Products",
+      path: "/admin/products",
+      products: JSON.parse(products),
+    })})})
+
+router.get("/admin/orders", (req, res) => {
+ res.render("orders", {
+      pageTitle: "Orders",
+      path: "/admin/orders",
+     
+    })})
+    
+
 module.exports = router

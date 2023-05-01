@@ -1,0 +1,27 @@
+.nav{
+    width:100vw;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.nav__logo span{
+color:#1599db;
+}
+.nav__links{
+    display:flex;
+    gap:2rem;
+}
+.nav__links a{
+    text-decoration:none;
+    color:black;
+}
+.nav__links a:hover{
+    color: #1599db;
+    border-bottom:1px solid #1599db;
+    transition: 0.4s;
+}
+.active{color:#1599db;
+border-bottom:1px solid #1599db;
+
+}

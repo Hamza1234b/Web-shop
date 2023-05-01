@@ -11,6 +11,7 @@ router.get("/products", (req, res) => {
   fs.readFile(productsPath, (err, products) => {
     res.render("index", {
       pageTitle: "Web shop",
+      path: "/products",
       products: JSON.parse(products),
     })
   })
@@ -21,9 +22,9 @@ router.get("/products/:id", (req, res) => {
   fs.readFile(productsPath, (err, products) => {
     const product = JSON.parse(products).find((product) => product.id === id)
     const error = { message: "Not Found" }
-    if (!product) return res.render("error", { pageTitle: error.title, error })
+    if (!product) return res.render("error", { pageTitle: error.title, path:"*", error })
 
-    res.render("product-detail", { pageTitle: product.title, product })
+    res.render("product-detail", { pageTitle: product.title, path: "/products",product })
   })
 })
 module.exports = router
