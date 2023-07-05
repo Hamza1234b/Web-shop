@@ -2,14 +2,7 @@ const express = require("express")
 
 
 const router = express.Router()
-
-router.get("/cart", (req, res) => {
-    res.render("cart", {
-      pageTitle: "Cart",
-      path: "/cart",
-     
-    })
-
-})
+const cartControllers = require("../controllers/cart.controllers")
+router.get("/cart", cartControllers.getCart )
 
 module.exports = router
